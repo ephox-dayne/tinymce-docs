@@ -471,4 +471,12 @@
   - url: "wordpress"
 
 - url: "changelog"
-- url: "apollo-api-wip"
+
+- url: "api-reference-guide"
+
+- url: "api-migration-guide"
+  pages:
+  - url: "migrating"
+  - url: "new-features"
+  - url: "resolved-and-known-issues"
+  - url: "deprecated-features"
