@@ -48,53 +48,105 @@ const dialogConfig = {
 `tinymce.activeEditor.windowManager.open`(conf), pass the config to the open method will create a dialog, with the title ‘Just a title’, an empty body and an empty footer without buttons.
 
 
-To demonstrate how data flows through the dialog, how buttons are configured, …. More… we will create a dialog that inserts the name of a cat into the editor content on submit.
+To demonstrate how data flows through the dialog, how buttons are configured, …. More… we will create a dialog that inserts the name of a cat into the editor content on submit.  We will refer to this example as we walk through the new dialog instance api.
 
 ### Example
 
 ```js
 // example dialog that inserts the name of a cat into the editor content
 const dialogConfig = {
-   title: 'Insert Cat Name',
-   body: {
-     type: 'panel',
-     items: [
-       {
-         type: 'input',
-         name: 'catdata',
-         label: 'enter the name of a cat'
-       }
-     ]
-   },
-   buttons: [
-     {
-       type: 'submit',
-       name: 'submitButton',
-      text: 'Do Cat Thing',
-        primary: true,
+  title: 'Insert Cat Name',
+  body: {
+    type: 'panel',
+    items: [
+      {
+        type: 'input',
+        name: 'catdata',
+        label: 'enter the name of a cat'
       },
       {
-        type: 'close',
-        name: 'closeButton',
-        text: 'cancel'
+        type: 'checkbox',
+        name: 'isdog',
+        label: 'tick if cat is actually a dog'
       }
-    ],
-    initialData: {
-      catdata: 'initial Cat'
+    ]
+  },
+  buttons: [
+    {
+      type: 'submit',
+      name: 'submitButton',
+      text: 'Do Cat Thing',
+      primary: true,
     },
-    onSubmit: (api) => {
-      const data = api.getData();
-      tinymce.activeEditor.execCommand('mceInsertContent', false, '<b>My cats name is:</b>, ' + data.foodata);
+    {
+      type: 'close',
+      name: 'closeButton',
+      text: 'cancel'
     }
- }
-```
-The key highlight in this example is the input field for ‘enter the name of a cat’, the name property ‘catdata’ is associated to the initalData.  All body components that require a name property also require an initialData property, this is how the relationship between the underlaying data model and the component is declared.  Notice that when we first load the dialog, the input field is pre-populated with ‘initial cat’.
+  ],
+  initialData: {
+    catdata: 'initial Cat',
+    isdog: false
+  },
+  onSubmit: (api) => {
+    const data = api.getData();
+    const pet = data.isdog ? 'dog' : 'cat';
 
-In this example we declared 2 buttons to be placed in the dialog footer, Close and Submit.  These are pre-made buttons that perform common actions, like closing a dialog or submiting a dialog, we will move onto a third type ‘custom’ button later.  The type: ‘close’ button is pre-wired to just abort and close the dialog.  The type: ‘submit’ button when clicked will invoke the onSubmit callback provided in the configuration, and we use that callback to insert the message.  When onSubmit is called its called with 2 args, the first is the dialogApi <see here {somewhere}>, the second parameter returns
+    tinymce.activeEditor.execCommand('mceInsertContent', false, `<b>My #{pet} name is:</b>, #{data.catdata}`);
+  }
+}
+```
+The key highlight in this example is the input field for ‘enter the name of a cat’, the name property ‘catdata’ is associated to the initalData.  All body components that require a name property also require an initialData property, this is how the relationship between the underlaying data model and the component is declared.  Notice that when we first load the dialog, the input field is pre-populated with ‘initial cat’.  When initialData.catdata = '' then on load, the input field should be empty.
+
+In this example we declared 2 buttons to be placed in the dialog footer, Close and Submit.  These are pre-made buttons that perform common actions, like closing a dialog or submiting a dialog, we will move onto a third type ‘custom’ button later.  The type: ‘close’ button is pre-wired to just abort and close the dialog.  The type: ‘submit’ button when clicked will invoke the onSubmit callback provided in the configuration, and we use that callback to insert the message.  When onSubmit is called, a dialog instanceApi is passed in as the parameter.
+
+## Dialog Instance Api
+When a dialog is created, a dialog instanceApi is returned.  For example 
+
+```js
+  const instanceApi = editor.windowManager.open(config);
+```
+
+The instanceApi is a javascript object containing methods attached to the dialog instance.  When the dialog is closed, the instanceApi is destroyed.
+
+## instanceApi Methods
+
+### getData(): <T>
+getData() returns a key value object matching the structure of the initialData -> see initialData configuration
+The object keys in the returned data object represents a component name.  For the Insert Cat Name example, data.catdata is the value currently being held by the input field with the name 'catdata'
+
+### setData(newConfig: object): void
+setData(newData) updates the dataset.  This method also works with partial data sets.
+
+### disable(name: string): void
+Calling disable and passing the component name will disable the component.  Calling enable(name) will re-enable the component. 
+
+### enable(name: string): void
+Calling enable and passing the component name will enable a component, and users can interact with the component.
+
+### focus(name: string): void
+Calling focus and passing the component name will set browser focus to the component.
+
+### block(message: string): void
+Calling block and passing a message string will disable the entire dialog window and display the message notifying users why the dialog is blocked, this is useful for asynchronous data.  When the data is ready we use unblock() to unlock the dialog
+
+### unblock(): void
+Calling unblock will unlock the dialog instance restoring functionality
+
+### showtab(name: string): void
+This method only applies to tab dialogs only. <todo insert tab dialog demo link> Calling showtab and passing the name of a tab will make the dialog switch to the named tag.
+
+### close(): void
+Calling the close method will close the dialog.  When closing the dialog, all DOM elements and dialog data are destroyed.  When open(config) is called again, all DOM elements and data are recreated from the config.
+
+### redial(config): void
+Calling redial and passing a dialog configuration, will destroy the current dialog and create a new dialog.  Redial is used to create a multipage form, where the next button loads a new form page.  See example <insert here>
 
 ## Component Definition
 
 Ui Components types and their definitions/what they do/why they needed/
+
+[todo notes] the section below will be generated by moxiedoc
 
 ### Panel
 
