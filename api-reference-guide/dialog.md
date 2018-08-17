@@ -50,12 +50,12 @@ const dialogConfig = {
 
 To demonstrate how data flows through the dialog, how buttons are configured, …. More… we will create a dialog that inserts the name of a cat into the editor content on submit.  We will refer to this example as we walk through the new dialog instance api.
 
-### Example
+### Example Simple
 
 ```js
-// example dialog that inserts the name of a cat into the editor content
-const dialogConfig = {
-  title: 'Insert Cat Name',
+// example dialog that inserts the name of a Pet into the editor content
+const dialogConfig =  {
+  title: 'Pet Name Machine',
   body: {
     type: 'panel',
     items: [
@@ -86,13 +86,13 @@ const dialogConfig = {
   ],
   initialData: {
     catdata: 'initial Cat',
-    isdog: false
+    isdog: 'unchecked'
   },
   onSubmit: (api) => {
     const data = api.getData();
-    const pet = data.isdog ? 'dog' : 'cat';
+    const pet = data.isdog === 'checked' ? 'dog' : 'cat';
 
-    tinymce.activeEditor.execCommand('mceInsertContent', false, `<b>My #{pet} name is:</b>, #{data.catdata}`);
+    tinymce.activeEditor.execCommand('mceInsertContent', false, `<b>My #{pet}'s name is:</b>, #{data.catdata}`);
   }
 }
 ```
@@ -141,6 +141,94 @@ Calling the close method will close the dialog.  When closing the dialog, all DO
 
 ### redial(config): void
 Calling redial and passing a dialog configuration, will destroy the current dialog and create a new dialog.  Redial is used to create a multipage form, where the next button loads a new form page.  See example <insert here>
+
+
+### Redial Demo
+```
+// example Redial dialog that demonstrates custom buttons
+
+const dialogConfig = {
+  title: 'Redial Demo',
+  body: {
+    type: 'panel',
+    items: [{
+      type: 'htmlpanel',
+      html: '<p>Redial allows the creation of multi-page forms.</p><p>The Next button has been configured to be disabled. When the <b>checkbox</b> is checked, the next button should be enabled</p>'
+    }, {
+      type: 'checkbox',
+      name: 'anyterms',
+      label: 'I agree to disagree'
+    }, {
+      type: 'htmlpanel',
+      html: '<p>The next button, calls the redial method which reloads a new dialog in place</p><p>Press next to continue</p>'
+    }]
+  },
+  initialData: {
+    anyterms: 'unchecked'
+  },
+  buttons: [
+    {
+      type: 'custom',
+      name: 'uniquename',
+      text: 'Next',
+      disabled: true
+    }
+  ],
+  onChange: (dialogApi, changeData) => {
+    const data = dialogApi.getData();
+
+    // Example of enabling and disabling a button, based on the checkbox state.
+    const toggle = data.anyterms === 'checked' ? dialogApi.enable : dialogApi.disable;
+    toggle('uniquename');
+  },
+  onAction: (dialogApi, actionData) => {
+    if (actionData.name === 'uniquename') {
+      dialogApi.redial({
+        title: 'Redial Demo - Page 2',
+        body: {
+          type: 'panel',
+          items: [
+            {
+              type: 'selectbox',
+              name: 'choosydata',
+              label: 'Choose a pet',
+              items: [
+                { value: 'meow', text: 'Cat' },
+                { value: 'woof', text: 'Dog' },
+                { value: 'thunk', text: 'Rock' }
+              ]
+            },
+            {
+              type: 'htmlpanel',
+              html: '<p>Click done, your pet choice will be printed in the console.log and the dialog should close</p>'
+            }
+          ]
+        },
+        buttons: [
+          {
+            type: 'custom',
+            name: 'lastpage',
+            text: 'Done',
+            disabled: false
+          }
+        ],
+        initialData: {
+          choosydata: ''
+        },
+        onAction: (dialogApi, actionData) => {
+          const data = dialogApi.getData();
+          console.log('you chose wisely: ' + data.choosydata);
+          dialogApi.close();
+        }
+      });
+    }
+  }
+}
+```
+
+
+### TODO: insert more component definitions from
+https://www.notion.so/tinycloud/Dialog-component-summary-ffac54a491214f18be28c64346ddf743
 
 ## Component Definition
 
@@ -200,7 +288,6 @@ var buttonConfig = {
 
                 Primary: (defaults to false)  when set to true, the button will be colored to standout.  The color will depend on the chosen skin
 
-
 ## Methods
 
 <Text>
@@ -208,7 +295,6 @@ var buttonConfig = {
 ### Display Information
 
 <Text>
-
 
 ### Display Complex Information
 
