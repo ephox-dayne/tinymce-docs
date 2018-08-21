@@ -483,6 +483,9 @@
 - url: "api-migration-guide"
   pages:
   - url: "migrating"
+  - url: "deprecated-features"
+
+- url: "api-release-notes"
+  pages:
   - url: "new-features"
   - url: "resolved-and-known-issues"
-  - url: "deprecated-features"
