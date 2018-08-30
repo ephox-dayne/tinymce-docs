@@ -7,5 +7,5 @@ description: TinyMCE API migration from version 4.8 to 5.0.
 keywords: API api reference
 ---
 
-{% assign links = site.data.nav[10].pages %}
+{% assign links = site.data.nav[12].pages %}
 {% include index.html links=links %}

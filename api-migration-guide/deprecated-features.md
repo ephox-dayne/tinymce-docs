@@ -1,12 +1,12 @@
 ---
 layout: default
-title: Deprecated Features
-title_nav: Deprecated Features
+title: Deprecated and Deleted Features
+title_nav: Deprecated and Deleted Features
 description: These features have been deprecated in TinyMCE 5.0.
 keywords: deprecated absolutelayout collection container control draghelper elementpath factory fieldset filepicker fitlayout floatpanel flowlayout keywboardnavigation movablepath reflowqueue spacer stacklayout widget window
 ---
 
-## Deprecated Features
+## Deleted Features
 
 Some features have been deprecated with the release of TinyMCE 5.0. This means that no enhancements will be made to these features, and they have been removed in the next major release.
 Tiny will continue providing full support and bug fixes under our standard support terms and conditions. For more information about the support , see <insert link>.
