@@ -58,6 +58,10 @@ Tiny 5 now supports IE 11, Chrome, Firefox, Safari, Edge, Opera.
 
 ## New Features and Enhancements
 
+### New UI
+
+### Emoticons
+
 ### Dialog
 
 The Dialog plugin is created for showing dialogs (sometimes referred to as modals) in your application. The plugin supports the use of dynamic content for all aspects and is easily configurable / overridable. To display simple information (eg: source code plugin, displays the HTML code from the content in the dialog)
