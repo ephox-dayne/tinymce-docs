@@ -18,7 +18,7 @@ TinyMCE 5.0 offers an easy to navigate configurable less cumbersome user interfa
 * Creates a Ui using a strict {configuration}
 * ARIA(IBM standards) compliant
 * Keyboard navigable, via configuration
-* Skinnable
+* Skinnable:
 * I18n (via config layer)
 * Easier for developers to build their own plugins
 * Easier to meet requests that come from their internal stakeholders or clients
@@ -55,10 +55,19 @@ Tiny 5.0 codebase has been extensively rewritten to be focused on converting the
 ### Support modern browser technologies
 Tiny 5 now supports IE 11, Chrome, Firefox, Safari, Edge, Opera.
 
+### Enhanced CSS
+
+A SKIN in tinymce is purely colors, margins, paddings, fonts, icons etc. A theme is where you can control where the toolbar appears, left/top/bottom/right of the editing area - vertical or horizontal, inline or outside etc. Then we have the component level, that defines a button, menuitem, panel, dropdowns, splitbuttons etc regardless of its position.
+Yes we do, legacy uses onclick, alloy uses action. So far this is the only discrepancy i've seen, a simple obj mapper will align these. The on<event> handlers in the current ui is rich since they expose the whole instance of a ui element so that you can alter state like toggled etc. We would have to define a more strict api here since the current api allows access to the entire tree structure of the ui.
+The skin creator is coupled with the tinymce.ui framework so it works with the modern theme and the inlite theme and in some extent moxiemanager since it's using the same ui framwork.
+
 
 ## New Features and Enhancements
 
 ### New UI
+
+It creates css and bundles resources like icon fonts and images for the ui. I think we should just rewrite that part to something less complex. It's complex since at the time of writing gradients was a thing so everything needed a start/end color range. I don't see such a project as as major work took us a few days to create the existing skin creator.
+
 
 ### Emoticons
 
@@ -86,8 +95,19 @@ The Context Toolbar configures its buttons based on the type of object selected 
 
 Svg icons for better crisp look
 
+New buttons are added to the global
+
+editor.buttons
+editor.menuItems
+editor.sidebar
+editor.contextToolbars
+
 
 ### Toolbar Menus
+
+New buttons are added to the global
+
+editor.settings.menus
 
 * Improvement -> now shows toggled state
 * Improved mouse and keyboard nav
