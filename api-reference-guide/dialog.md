@@ -22,7 +22,7 @@ This chapter describes migration and workarounds if you are using an older versi
 ** These dialogs needs a way to set the desired content into a defined tab section
 
 * Interactive dialogs use web forms to collect interaction data, and then apply the data  (eg: search and replace dialog, uses an input field.  Where the input text will be used as the search key)
-** These are the most complexed forms of dialogs and requires the ability to define what data is required, and how to get that data when we need it, and how to set the data to what we want.
+** These are the most complex forms of dialogs and requires the ability to define what data is required, and how to get that data when we need it, and how to set the data to what we want.
 
 
 ## Authentication
