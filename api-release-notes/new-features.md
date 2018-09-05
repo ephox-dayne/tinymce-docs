@@ -29,7 +29,7 @@ TinyMCE 5.0 offers an easy to navigate configurable less cumbersome user interfa
 
 Try out our demo page to explore the new UI.
 
-## Tiny Comments Demo
+## Tiny 5.0 Demo
 
 ## Value to a Developer
 

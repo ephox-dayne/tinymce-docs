@@ -17,17 +17,47 @@ This chapter describes the migration process and workarounds if you are using an
 
 ## Important Considerations
 
-Text
+### API changes
+
+What does the current API allow us to do?
+
+* Add a button to the toolbar editor.addButton()
+* Create a button and attach it anywhere tinymce.ui.Factory.create
+
+
+What can’t it do now that we would like it to do later
+
+* Share the Ui with TBIO
+* editor.addButton will need to create an Alloy config, we will need various adaptors to make it work both ways. This adds complexity and maybe awkward code.
+
+What can it do now that we don’t want it to do later
+
+* When we set { cmd: ‘foobar” } it will overwrite any onclick functions declared (Editor.ts addButton)
+* Some args can be String or String[]
+* Some args can take either fn() or String
+* on<event> exposes too much
+
 
 ### Features
+
 ### Plugins
+
 ### Themes
+
 ### Existing data
 
 
 ## Installation and integration
 
 ### Pre-Migration Tasks
+
+Spike
+* Create a simple theme with alloy, editor.buttons & editor.menuItems
+* Create an equivalent API to add a button only
+* Create a Demo, that uses Alloy silver api, that adds 3 buttons
+* Change the theme to ‘modern’, expect those 3 buttons to be added
+* Rinse and repeat with toolbars, submenus, todo list all these components in jira
+
 
 Text
 
