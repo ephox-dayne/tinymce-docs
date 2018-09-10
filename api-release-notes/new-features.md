@@ -12,8 +12,6 @@ TinyMCE 5.0 offers an easy to navigate configurable less cumbersome user interfa
 
 ## Specifications
 
-### Modern, cleaner, stricter UI API
-
 * Streamlined documentation
 * Creates a Ui using a strict {configuration}
 * ARIA(IBM standards) compliant
@@ -32,6 +30,12 @@ Try out our demo page to explore the new UI.
 ## Tiny 5.0 Demo
 
 ## Value to a Developer
+
+### Modern, cleaner, stricter UI API
+
+cleaner + stricter, are benefits to tiny. We have less code pathways that do the same thing (reduced complexity and maintenance for ourselves). We reduce the ability for developers to introduce bugs as tiny5 will only accept specific configs, and should throw specific errors on why it failed so. Theres a tradeoff here, developers used to have 10 undocumented ways to do something, where as now there is 1 accepted and documented way.
+
+I think the term modern should be removed, as the API style and feel is still consistent with tiny. The theme is more modern but not he API
 
 ### Easy to integrate with modern systems
 
@@ -78,6 +82,11 @@ The Dialog plugin is created for showing dialogs (sometimes referred to as modal
 ### Context Menu
 
 The contextMenu can provide a simple list of clickable commands, or offer an in-menu form. This makes very simple attribute modification possible. Tiny 5.0 offers the contextMenu Plugin that is designed for web applications in need of menus on a possibly large amount of objects. Now, a single menu is defined that can be used by multiple objects and a contextMenu doesn't need to bind itself to triggering objects. This allows injecting and removing triggers without having to re-initialize or update contextMenu.
+context menu release notes
+- the context menu is no longer a plugin, it is part of the core and always enabled
+- plugins can now register context menu sections
+- editor `contextmenu` configuration can include menu items as before, but now also plugin menu sections
+- e.g. the default context menu config is now `link image editimage table spelling` which are all plugin references
 
 ### Context Toolbars
 

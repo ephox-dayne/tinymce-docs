@@ -475,6 +475,9 @@
 - url: "api-reference-guide"
   pages:
   - url: "dialog"
+    pages:
+    - url: "dialog"
+    - url: "dialogcomponent"
   - url: "tables"
   - url: "contextmenus"
   - url: "contexttoolbars"
