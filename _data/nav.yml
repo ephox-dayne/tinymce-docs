@@ -477,6 +477,7 @@
   - url: "dialog"
     pages:
     - url: "dialogdescription"
+    - url: "example"
     - url: "dialogcomponent"
   - url: "tables"
   - url: "contextmenus"
