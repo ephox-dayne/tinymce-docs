@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: draft
 title: Dialog Component
 title_nav: Dialog Component
 description: Dialog component summary is a reference list of all TinyMCE UI components that can be used to display simple information.

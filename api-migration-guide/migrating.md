@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: draft
 title: Migrating from TinyMCE 4 to TinyMCE 5.
 title_nav: Migrating
 description: Instructions for migrating from TinyMCE 4 to TinyMCE 5.

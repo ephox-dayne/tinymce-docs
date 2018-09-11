@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: draft
 title: Deprecated and Deleted Features
 title_nav: Deprecated and Deleted Features
 description: These features have been deprecated in TinyMCE 5.0.

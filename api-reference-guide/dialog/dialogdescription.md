@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: draft
 title: Dialog
 title_nav: Dialog
 description: Dialog is a TinyMCE UI component used to display simple information.
@@ -252,9 +252,8 @@ The onAction callback at the root level, is the handler for the 'Previous' and '
 The onAction callback inside the redial() call, is a separate handler for the redialed dialog.  Since there is only one button we don't check which named button triggered the click.
 This handler demonstrates the dialogApi.close() api.
 
-> Note: Please see [this]({{ site.baseurl }}/dialogcomponent)) page for a comprehensive list of components.
+> Note: Please see [this]({{site.baseurl}}/dialog/dialogcomponent) page for a comprehensive list of components.
 
-https://www.notion.so/tinycloud/Dialog-component-summary-ffac54a491214f18be28c64346ddf743
 
 ## Component Definition
 

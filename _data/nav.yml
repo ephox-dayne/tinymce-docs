@@ -476,7 +476,7 @@
   pages:
   - url: "dialog"
     pages:
-    - url: "dialog"
+    - url: "dialogdescription"
     - url: "dialogcomponent"
   - url: "tables"
   - url: "contextmenus"

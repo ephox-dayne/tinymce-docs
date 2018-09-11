@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: draft
 Status: draft
 title: Dailog
 title_nav: Dialog

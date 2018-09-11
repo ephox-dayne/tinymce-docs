@@ -1,6 +1,5 @@
 ---
-layout: default
-Status: draft
+layout: draft
 title: API Reference Guide
 title_nav: API Reference Guide
 description: TinyMCE API reference guide.
