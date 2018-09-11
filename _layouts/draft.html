@@ -59,20 +59,10 @@ layout: compress
     <div class="heading">
         <h1 class="light">{{ page.title }}</h1>
 <style>
-    .background {
-        height: 0px;
-        position: fixed;
-        left: 50%;
-        z-index:10;
-    }
+    .content {
+        background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('http://res.cloudinary.com/deadlypenguin/image/upload/v1460686084/BattleStationDraft_l9f82j.png') ;
+        background-size: 850px;
 
-    #draft-watermark {
-        color: lightgrey;
-        z-index: 10;
-        font-size: 70px;
-        transform: rotate(320deg);
-        -webkit-transform: rotate(320deg);
-        opacity: 0.6;
     }
 </style>
         <h2 class="light">{{ page.description }}</h2>
@@ -89,9 +79,6 @@ layout: compress
         {% endif %}
     </div>
 
-    <div class="background">
-        <p id="draft-watermark">DRAFT DOC</p>
-    </div>
     <div class="content">
         {{ content }}
         {% include feedback.html %}
