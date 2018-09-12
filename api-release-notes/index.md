@@ -6,5 +6,5 @@ description: TinyMCE API Release Notes for version 5.0.
 keywords: API api releasenotes release notes
 ---
 
-{% assign links = site.data.nav[13].pages %}
+{% assign links = site.data.nav[14].pages %}
 {% include index.html links=links %}
