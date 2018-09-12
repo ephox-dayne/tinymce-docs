@@ -24,7 +24,7 @@ https://www.tinymce.com/docs/advanced/handle-async-image-uploads/
 
 
 ## Cloud Installation
-To enable the TinyMCE **PowerPaste** plugin with [TinyMCE Cloud]({{ site.baseurl }}/get-started-cloud/):
+To enable the TinyMCE **PowerPaste** plugin with [TinyMCE Cloud]({{ site.baseurl }}/cloud-deployment-guide/editor-and-features/):
 
 1. If you are currently using the `paste` plugin provided with TinyMCE, disable it by removing it from the `plugins` list.
 2. Add `powerpaste` to the `plugins` list.
@@ -178,4 +178,4 @@ tinymce.get('editorID').('PastePostProcess', function(fragment) {
 
 ## Buy TinyMCE PowerPaste
 
-Start with our [dedicated product page](https://www.ephox.com/products/powerpaste/) to see our flexible pricing options. OEM and enterprise customers should [contact sales directly](https://www.tinymce.com/pricing/).
+Start with our [dedicated product page](https://about.tiny.cloud/products/powerpaste/) to see our flexible pricing options. OEM and enterprise customers should [contact sales directly](https://www.tinymce.com/pricing/).

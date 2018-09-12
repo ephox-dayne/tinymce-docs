@@ -8,8 +8,21 @@ class: changelog
 
 {% capture changelog %}
 
+## Version 4.8.2 August 9, 2018
+* Moved annotator from "experimental" to "annotator" object on editor.
+* Improved the multiclick normalization across browsers.
+* Fixed a bug where running getSelectedBlocks with a collapsed selection between block elements would produce incorrect results.
+* Fixed a bug where the ScriptLoaders loadScript method would not work as expected in FireFox when loaded on the same page as a ShadowDOM polyfill.
+* Removed reference to ShadowDOM event.path as Blink based browsers now support event.composedPath.
+* Fixed a bug where a reference to localStorage would throw an "access denied" error in IE11 with strict security settings.
+* Fixed a bug where pasting using the toolbar button on an inline editor in IE11 would cause a looping behaviour.
+
+## Version 4.8.1 July 26, 2018
+* Fixed a bug where the content of inline editors was being cleaned on every call of `editor.save()`.
+* Fixed a bug where the arrow of the Inlite Theme toolbar was being rendered incorrectly in RTL mode.
+* Fixed a bug with the Paste Plugin where pasting after inline contenteditable false elements moved the caret to the end of the line.
+
 ## Version 4.8.0 July 11, 2018
-* Added new "experimental" object in editor, with initial Annotator API.
 * Fixed a bug where deleting paragraphs inside of table cells would delete the whole table cell.
 * Fixed a bug in the Table Plugin where removing row height set on the row properties dialog did not update the table.
 * Fixed a bug with the font select toolbar item didn't update correctly.
@@ -400,6 +413,9 @@ class: changelog
 * Fixed bug where browsers would hang if you tried to load some malformed html contents.
 * Fixed bug where the init call promise wouldn't resolve if the specified selector didn't find any matching elements.
 * Fixed bug where the Schema isValidChild function was case sensitive.
+
+## Version 4.5.9 - August 2, 2018
+* Fixed a bug where Edge 17 wouldn't be able to select images or tables.
 
 ## Version 4.5.8 - November 5, 2017
 * Fixed bug where paste on Edge wouldn't paste UTF characters since Microsoft didn't implement the html5 clipboard api correctly.
@@ -798,7 +814,7 @@ class: changelog
 * Fixed bug where pagebreaks were editable to imagetools patch contributed by Rasmus Wallin.
 * Fixed bug where the element path could cause too much recursion exception.
 * Fixed bug for domains containing ".min". Patch contributed by Loïc Février.
-* Fixed so validation of external links to accept a number after www. Patch contributed by Victor Carvalho.
+* Fixed so validation of external links to accept a number after `www`. Patch contributed by Victor Carvalho.
 * Fixed so the charmap is exposed though execCommand. Patch contributed by Matthew Will.
 * Fixed so that the image uploads are concurrent for improved performance.
 * Fixed various grammar problems in inline documentation. Patches provided by nikolas.

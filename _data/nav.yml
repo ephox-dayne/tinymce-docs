@@ -1,13 +1,7 @@
-- url: "get-started-cloud"
-  pages:
-  - url: "editor-and-features"
-  - url: "features-only"
-  - url: "editor-plugin-version"
-  - url: "plugin-editor-version-compatibility"
+- url: "quick-start"
 
-- url: "get-started"
+- url: "general-configuration-guide"
   pages:
-  - url: "first-steps"
   - url: "basic-setup"
   - url: "use-tinymce-inline"
   - url: "multiple-editors"
@@ -21,7 +15,12 @@
   - url: "system-requirements"
   - url: "get-support"
 
-- url: "mobile"
+- url: "cloud-deployment-guide"
+  pages:
+  - url: "editor-and-features"
+  - url: "features-only"
+  - url: "editor-plugin-version"
+  - url: "plugin-editor-version-compatibility"
 
 - url: "demo"
   pages:
@@ -43,6 +42,8 @@
   - url: "custom-toolbar-menu-item"
   - url: "file-picker"
   - url: "local-upload"
+
+- url: "mobile"
 
 - url: "configure"
   pages:
@@ -226,6 +227,7 @@
     pages:
     - url: "#contextmenu"
     - url: "#contextmenu_never_use_native"
+  - url: "tinycomments"
   - url: "directionality"
   - url: "emoticons"
   - url: "mediaembed"
@@ -413,6 +415,7 @@
 
 - url: "enterprise"
   pages:
+  - url: "tiny-comments"
   - url: "manage-files-and-images"
   - url: "paste-from-word"
   - url: "check-spelling"
@@ -444,6 +447,7 @@
   - url: "creating-a-custom-button"
   - url: "creating-a-skin"
   - url: "creating-a-plugin"
+  - url: "annotations"
   - url: "yeoman-generator"
   - url: "creating-custom-dialogs"
   - url: "creating-custom-notifications"

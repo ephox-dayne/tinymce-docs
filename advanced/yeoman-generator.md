@@ -7,7 +7,7 @@ description: How to use the Yeoman generator to bootstrap a new TinyMCE plugin u
 keywords: webpack yeoman generator plugin tinymce
 ---
 
-To make it easy and quick to get started creating your own plugins for TinyMCE we have created the TinyMCE Plugin Generator. Using this the only thing you have to do is answer a few questions, wait for some dependencies to install and ***bam!*** you are ready to get started creating that plugin you were dreaming about. 
+To make it easy and quick to get started creating your plugins for TinyMCE we have created the TinyMCE Plugin Generator. Using this the only thing you have to do is answer a few questions, wait for some dependencies to install and ***bam!*** you are ready to get started creating that plugin you were dreaming about. 
 
 
 ## Install the generator
@@ -32,7 +32,7 @@ You will then be guided through these questions:
 1. **Plugin name?**  
 The name of the plugin.
 2. **How do you want to write your plugin?**  
-With what technology do you want to write your plugin? ES2015 transpiled with Babel, Typescript or Bolt (which is the module system used internally by Ephox, and probably not something that will be that interesting for external developers to use).
+With what technology do you want to write your plugin? ES2015 transpiled with Babel, Typescript or Bolt (which is the module system used internally by Tiny, and probably not something that will be that interesting for external developers to use).
 3. **Use yarn instead of npm?**  
 If you have yarn installed you can use that instead of npm for a speedier install.
 4. **Skip git repo initialization?**  
@@ -46,7 +46,7 @@ For license
 8. **Which license do you want to use?**  
 Hopefully self-explanatory: decide under what license you want to release you plugin.
 
-After you have made your way through these prompts yeoman will install the needed dependencies and we are pretty much done: the project is bootstrapped and ready. `cd` into the plugin directory and run the following to start the autoreloading development server and get started:
+After you have made your way through these prompts yeoman will install the needed dependencies and we are pretty much done: the project is bootstrapped and ready. `cd` into the plugin directory and run the following to start the auto reloading development server and get started:
 
 ```bash
 npm start
@@ -67,7 +67,7 @@ A `dist` directory will be created with a directory in it named the same as your
 
 * `plugin.js` - unminified plugin bundle
 * `plugin.min.js` - minified and uglified plugin bundle
-* `LICENSE` - the text file containing you license
+* `LICENSE` - the text file containing your license
 
 Ready for you to distribute out in whatever way you'd like to. 
 
