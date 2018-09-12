@@ -480,7 +480,8 @@
   pages:
   - url: "dialog"
     pages:
-    - url: "dialog"
+    - url: "dialogdescription"
+    - url: "example"
     - url: "dialogcomponent"
   - url: "tables"
   - url: "contextmenus"
