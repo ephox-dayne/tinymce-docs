@@ -1,6 +1,23 @@
-<p data-height="{{ include.height | or:'660' }}" data-theme-id="0" data-slug-hash="{{ include.id }}" data-default-tab="{{ include.tab | or:'result' }}" data-user="tinymce" {% if include.preview %}data-preview="true"{% endif %} class="codepen">
-  See the Pen <a href='http://codepen.io/tinymce/pen/{{ include.id }}/'>{{ include.id }}</a>
-  by TinyMCE (<a href='http://codepen.io/tinymce'>@tinymce</a>)
-  on <a href='http://codepen.io'>CodePen</a>.
-</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+
+<!-- TODO: link rel='stylesheet' href='http://www.tinymce.com/css/codepen.min.css' -->
+
+<!-- TODO: include tinymce.min.js only once -->
+<script src='https://cloud.tinymce.com/stable/tinymce.min.js?apiKey=qagffr3pkuv17a8on1afax661irst1hbr4e6tbv888sz91jc'></script>
+
+{% capture codepen_html %}
+{% include codepens/{{ include.id }}/index.html %}
+{% endcapture %}
+
+
+{{ codepen_html }}
+
+<script>
+{% include codepens/{{ include.id }}/js/index.js %}
+</script>
+
+<form action="https://codepen.io/pen/define" method="POST" target="_blank">
+    <input type="hidden" name="data" value='{"title": "blah", "html": "TODO"}' />
+
+    <input type="submit" value="Edit on CodePen" />
+</form>
