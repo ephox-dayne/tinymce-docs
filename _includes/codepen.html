@@ -10,14 +10,30 @@
 {% endcapture %}
 
 
-{{ codepen_html }}
-
-<script>
+{% capture codepen_js %}
 {% include codepens/{{ include.id }}/js/index.js %}
-</script>
+{% endcapture %}
 
-<form action="https://codepen.io/pen/define" method="POST" target="_blank">
-    <input type="hidden" name="data" value='{"title": "blah", "html": "TODO"}' />
+<div id="codepen_{{ include.id }}">
+{{ codepen_html }}
+</div>
+<form action="https://codepen.io/pen/define" method="POST" target="_blank" id="codepen_form_{{ include.id }}">
+    <input type="hidden" name="data" id="codepen_data_{{ include.id }}" />
 
     <input type="submit" value="Edit on CodePen" />
 </form>
+
+<script>
+{{ codepen_js }}
+
+  (function() {
+    var html = decodeURIComponent("{{ codepen_html | uri_escape }}");
+    var js = decodeURIComponent("{{ codepen_js | uri_escape }}");
+    var data = {
+      title: "code",
+      html: html,
+      js: js
+    };
+    document.getElementById("codepen_data_{{ include.id }}").value = JSON.stringify(data);
+  })();
+</script>
